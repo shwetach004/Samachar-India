@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+
+{% block x %}
+<div class="fs-2 text-center">Contact <b class="text-mycolor">Us
+<i class="fa-solid fa-location-dot"></i> </b>
+</div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 frm">
+        {% if msg %}
+        <div class="alert alert-success">
+            Your Data saved Successfully.....
+        </div>
+        {% endif %}
+        <form method="post">
+           {% csrf_token %}
+            <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light">
+                    <i class="fa-solid fa-user"></i>
+                </i>
+                <input name="name" required type="text" class="form-control" placeholder="Name."/>
+            </div>
+             <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light">
+                  <i class="fa-solid fa-envelope"></i>
+                </i>
+                <input name="email" required type="text" class="form-control" placeholder="Email.."/>
+            </div>
+             <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light">
+                    <i class="fa-solid fa-phone"></i>
+                </i>
+                <input name="mob" required type="text" class="form-control" placeholder="Mobile."/>
+            </div>
+             <div class="input-group mb-3">
+                <i class="input-group-text bg-mycolor text-light">
+                 <i class="fa-solid fa-message"></i>
+                </i>
+                 <textarea name="msg" required class="form-control" placeholder="Message.."></textarea>
+               </div>
+            <input type="submit" value="Save" class="form-control bg-mycolor"/>
+        </form>
+        <div class="alert alert-success">
+
+
+        </div>
+    </div>
+    <div class="col-sm-5"></div>
+    <div class="col-sm-1"></div>
+</div>
+{% endblock %}

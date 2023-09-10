@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+      {% block title  %}
+
+      {% endblock  %}
+    </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    <style>
+        .bg-mycolor
+        {
+        background:#e53935;
+        }
+        .text-mycolor
+        {
+        color:#e53935;
+        }
+        .sicon
+        {
+        border:1px solid white;
+        padding:.3%;
+        border-radius:2px;
+        }
+        .sicon:hover
+        {
+        background:white;
+        transform:rotate(360deg);
+        transition:all ease 1s;
+        color:#e53935
+        }
+         .bfooter
+        {
+        min-height:50px;
+        background:#1e2022;
+        line-height:50px;
+        color:white;
+        font-size:24px;
+        border-top:1px solid white;
+        }
+        .bfooter a
+        {
+        text-decoration:none;
+        color: Goldenrod;
+        }
+            </style>
+</head>
+<bodY>
+<div class="container-fluid">
+    <div class="row top bg-mycolor text-white text-center py-2">
+<div class="col-sm-1"></div>
+<div class="col-sm-5">
+<i class="fa-solid fa-envelope sicon"></i>
+samacharindia@gmail.com
+</div>
+<div class="col-sm-5">
+   <i class="fa-brands fa-facebook sicon"></i>
+   <i class="fa-brands fa-youtube sicon"></i>
+   <i class="fa-brands fa-twitter sicon"></i>
+   <i class="fa-brands fa-instagram sicon"></i>
+</div>
+<div class="col-sm-1"></div>
+    </div>
+    <div class="row header py-2 sticky-top bg-light">
+        <div class="col-sm-4 logo fs-3 text-center">
+            SAMACHAR <b class="text-mycolor">INDIA <i class="fa-solid fa-newspaper"></i></b>
+        </div>
+        <div class="col-sm-8 menu">
+<!-- start menu-->
+          <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/index/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/about/">About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/user/news/">News</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="fa-solid fa-image"></i>   Gallery
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/user/gallery/">Image Gallery</a></li>
+            <li><a class="dropdown-item" href="/user/video/">Video Gallery</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/contact/">Contact Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/admin/">Login</a>
+        </li>
+
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn bg-mycolor" type="submit"><i class="fa-solid fa-magnifying-glass text-white"></i></button>
+      </form>
+    </div>
+  </div>
+</nav>
+<!-- end menu-->
+        </div>
+    </div>
+
+    <div class="row content bg-light " style="min-height:500px;">
+        <div class="col-sm-12 py-2">
+            {% block x %}
+
+            {% endblock %}
+        </div>
+      </div>
+    <div class="row bfooter text-center">
+        <div class="col-sm-6">Developed By : <a href="#" class="text-mycolor">Shweta Chaudhary (Samachar India Project)</a></div>
+        <div class="col-sm-6">
+            &copy; Copyright : <a href="https://www.gpghaziabad.ac.in/" target="_blank" class="text-mycolor">Apna college Project</a>
+        </div>
+    </div>
+</div>
+</bodY>
+</html>

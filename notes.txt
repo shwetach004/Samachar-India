@@ -1,0 +1,92 @@
+if condition:
+	statement
+	statement
+	statement
+	
+	
+{% if condition %}
+
+{% else %}
+
+{% endif %}
+
+====================
+for x in collection:
+	statement
+	statement
+	statement
+	
+{% for x in collection %}
+<h1>Heading </h1>
+
+{% endfor %}
+
+================
+{{Name}}  used for data printing
+{{Email}}
+
+=================
+class test():
+	member1
+	member2
+	member3
+
+Creation of object
+------------------
+x=text()  =>  x is the object test class(reference variable) 
+
+x.member1
+x.member()
+----------------
+
+1. python manage.py makemigrations
+2. python manage.py migrate
+==============================
+How to access Django Admin Interface
+==============================
+Python manage.py createsuperuser
+
+Username
+Email 
+Password 
+Password(again)
+
+y=10
+def demo():
+	x=""
+	print(y)
+	if 10>5:
+		x=30
+		print(x)#30
+	print(x)#30 #global Variable
+	
+def demo1():
+	print(x)#local variable
+	print(y)#global variable
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+	
+	
+	
+
+
+
+
+	
+	
+	
+	
+	
+	
+<h1>HTML</h1>

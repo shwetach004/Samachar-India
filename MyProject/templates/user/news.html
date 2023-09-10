@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block x %}
+<div class="fs-2 text-center">Latest
+    <b class="text-mycolor">News
+<i class="fa-solid fa-location-dot"></i> </b>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+        <ul class="list-group">
+  <li class="list-group-item fs-4 bg-mycolor text-light text-center fw-bold">News Category
+            <i class="fa-solid fa-newspaper"></i>
+            </li>
+            {% for x in cat %}
+            <li class="list-group-item">
+                <!-- start card -->
+                <div class="card mb-0 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{x.cpic}}" style="min-height:60px"
+           class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <a href="/user/news?catid={{x.id}}" style="text-decoration:none;">
+        <h5 class="card-title text-center">{{x.category}}</h5>
+              </a>
+        </div>
+    </div>
+  </div>
+</div>
+                <!-- end card -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-6">
+        {% for i in ndata %}
+        <div class="card">
+            <div class="row">
+            <div class="col-sm-4">
+     <img src="/{{i.npic}}" class="img-thumbnail"/>
+            </div>
+            <div class="col-sm-8">
+                <div class="card-title">
+                    <h5>{{i.ntitle}}</h5>
+
+                    <span>{{i.nhead}}</span><br/>
+                    <a href="/user/details?n={{i.id}}" class="btn btn-sm bg-mycolor">View More
+                <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <span class="btn btn-outline-danger btn-sm">{{i.category}}</span>
+                    <span class="btn btn-outline-danger btn-sm">{{i.ncity}}</span>
+                    <br/>
+                    <b>
+                        <i class="fa-solid fa-calendar-days"></i> Date :
+                    </b>
+                    <span class="text-muted">{{i.ndate}}</span>
+
+
+                </div>
+            </div>
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+      <div class="col-sm-3">
+        <ul class="list-group">
+  <li class="list-group-item fs-4 bg-mycolor text-light
+  text-center fw-bold">City
+            <i class="fa-solid fa-newspaper"></i>
+            </li>
+            {% for x in ct %}
+            <li class="list-group-item">
+                <!-- start card -->
+                <div class="card mb-0 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{x.cpic}}" style="min-height:60px"
+           class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+          <a href="/user/news?ctid={{x.id}}" style="text-decoration:none;">
+        <h5 class="card-title text-center">{{x.ncity}}</h5>
+          </a>
+        </div>
+    </div>
+  </div>
+</div>
+                <!-- end card -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

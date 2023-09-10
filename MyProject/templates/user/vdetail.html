@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Video News
+{% endblock %}
+{% block x %}
+<div class="fs-2 text-center">News<b class="text-mycolor">
+<i class="fa-solid fa-location-dot"></i> </b>
+</div>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+      {% for x in vdata %}
+    <div class="row">
+      <div class="card my-3">
+<iframe class="w-100 img-card-top" style="min-height:380px" src="{{x.vlink}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="card-body">
+  <h5 class="card-title">{{x.vhead}}</h5>
+  <b>{{x.vcategory}}</b>
+  <p class="card-title">{{x.vdes | safe }}</p>
+  <span class="btn btn-outline-danger">
+    <i class="fa-solid fa-calendar-days"></i> {{x.vdate}}
+  </span>
+   <span class="btn btn-outline-danger float-end">
+    <i class="fa-solid fa-city"></i> {{x.vcity}}
+  </span>
+</div>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+{% endblock %}

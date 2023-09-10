@@ -1,0 +1,195 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Samachar India
+{% endblock %}
+{% block x %}
+  <div class="row slider">
+        <div class="col-sm-7 s1 p-0" >
+  <!-- start slider-->
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active ">
+      <img src="{% static 'images/f.jpeg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>KTET Answer Key 2022 to be released soon at ktet.kerala.gov.in</h3>
+        <p> Once released, candidates who have appeared for the Kerala Teacher Eligibility Test 2022 would be able to download the answer key.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/d.jpeg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Watch: Liverpool's Robertson elbowed by assistant referee</h3>
+        <p>Liverpool's Andrew Robertson is shown a yellow card by referee Paul Tierney just after the incident. (Reuters Photo)</p>
+      </div>
+    </div>
+    <div class="carousel-item ">
+      <img src="{% static 'images/e.jpeg'%}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3></h3>
+        <p>The National Testing Agency is conducting the (JEE)Main exam from 6 April. </p>
+      </div>
+    </div>
+    
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+  <!-- end slider-->
+
+        </div>
+        <div class="col-sm-5 s2" style="height:470px;overflow-x:auto;">
+            <!-- Start card-->
+            <marquee direction="up" behavior="alternate"
+                     height="470px">
+            {% for x in ndata %}
+
+            <div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{x.npic}}" class="img-fluid rounded-start"
+           style="min-height:130px;" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{x.nhead}}</h5>
+        <p class="card-text"><small class="text-muted"> Date
+            <i class="fa-solid fa-calendar"></i>
+         : {{x.ndate}}
+        </small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+           {% endfor%}
+                 </marquee>
+
+            <!-- end card-->
+
+        </div>
+    </div>
+    <div class="row ncategory">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          {% for i in data %}
+          <div class="col-sm-2 my-3">
+
+            <div class="card">
+              <img src="/{{i.cpic}}" class="img-card-top"/>
+            <div class="card-body">
+              <a href="/user/viewnews?msg={{i.id}}" style="text-decoration:
+              none;color:black;">
+              <h5 class="card-title text-center">{{i.category}}</h5>
+</a>           </a>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row inews p-5" style="background:#e8e8e8;">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <h3 class="text-center">Our Latest New</h3>
+            <div class="row">
+                <!-- start news-->
+  {% for x in ndata %}
+  <div class="col-sm-4">
+    <div class="card">
+      <img src="/{{x.npic}}" style="max-height:180px" class="img-card-top">
+    <div class="card-body">
+      <h5>{{x.category}}</h5>
+
+      <b>{{x.nhead}}</b><br>
+      <i>{{x.ntitle}}</i>
+      <br/>
+      <a href="/user/details?n={{x.id}}" class="btn btn-sm bg-mycolor">View More</a>
+      <a href="#" class="btn btn-sm bg-dark text-light">
+         <span class="text-mute">{{x.ncity}}</span>
+      </a>
+      <span class="float-end">
+      <i class="fa-solid fa-calendar-days"></i> : {{x.ndate}}
+        </span>
+
+
+
+
+    </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- end news-->
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+   <!-- start video news-->
+<div class="row py-5">
+    <div class="fs-2 text-center">Latest<b class="text-mycolor">Video News
+<i class="fa-solid fa-location-dot"></i> </b></div>
+    {% for i in vdata %}
+    <div class="col-sm-6">
+        <!--start card  -->
+        <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <iframe class="w-100" src="{{i.vlink}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{i.vcategory}}</h5>
+          <b>{{i.vhead}}</b><br/>
+          <a href="/user/vdetail?vid={{i.id}}" class="btn btn-sm bg-mycolor text-white">View More</a>
+          <a href="#" class="btn btn-sm bg-mycolor float-end">{{i.vcity}}</a>
+        <p class="card-text"><small class="text-muted">
+            <i class="fa-solid fa-calendar-days"></i>
+            Date
+        </small></p>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- end card  -->
+    </div>
+    {% endfor%}
+</div>
+   <!-- end  video news-->
+  <div class="row city">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          {% for i in city %}
+          <div class="col-sm-2 my-3">
+
+            <div class="card">
+              <img src="/{{i.cpic}}" class="img-card-top"/>
+            <div class="card-body">
+              <a href="/user/viewnews?cid={{i.id}}" style="text-decoration:
+              none;color:black;">
+              <h5 class="card-title text-center">{{i.ncity}}</h5>
+</a>           </a>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+{% endblock %}
